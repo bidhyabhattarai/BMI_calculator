@@ -7,3 +7,9 @@ print("Your name is " + name + "\nyour weight is " + str(weight) + " kg and, \ny
 # print weight and height data types using type(). 
 print("The data type of weight is: " + str(type(weight)))
 print("The data type of height is: " + str(type(height)))
+
+# Calculate BMI
+bmi = weight / (height * height)
+
+# Print BMI result
+print("Your BMI is: " + str(bmi))
