@@ -13,3 +13,11 @@ bmi = weight / (height * height)
 
 # Print BMI result
 print("Your BMI is: " + str(bmi))
+
+# Display formatted BMI report
+print("\n------ BMI REPORT ------")
+print("Name   :", name)
+print("Weight :", weight, "kg")
+print("Height :", height, "m")
+print("BMI    :", round(bmi, 2))
+print("------------------------")
