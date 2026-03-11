@@ -14,6 +14,16 @@ bmi = weight / (height * height)
 # Print BMI result
 print("Your BMI is: " + str(bmi))
 
+# Categories
+if bmi < 18.5:
+    category = "Underweight"
+elif bmi <= 24.9:
+    category = "Normal"
+elif bmi <= 29.9:
+    category = "Overweight"
+else:
+    category = "Obese"
+
 # Display formatted BMI report
 print("\n------ BMI REPORT ------")
 print("Name   :", name)
