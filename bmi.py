@@ -1,5 +1,6 @@
 total_users = int(input("How many user data do you want to enter?"))
 user_data = []
+all_health_conditions = set()  # Set to store unique health conditions
 for i in range(total_users):
     print(f"\nEntering data for user {i + 1}:")
     name = input("Enter name: ")
@@ -7,6 +8,10 @@ for i in range(total_users):
     height = float(input("Enter height in meters: "))
     weight = float(input("Enter weight in kg: "))
     health_tags = input("Enter health tags (comma-separated): ").split(",")
+
+    health_tags = [tag.strip() for tag in health_tags]  # Clean spaces
+    all_health_conditions.update(health_tags)  # Add to set
+
     user_data.append({ # Storing user data in a dictionary
         "name": name,
         "age": age,
@@ -51,3 +56,24 @@ for user in user_data:
 
 for user in user_data:
     print(f"Name: {user['name']}, Age: {user['age']}, BMI: {user['bmi']}, Category: {user['category']}")
+
+
+# Formatted Report
+print("\n" + "="*50)
+print("User Health Report")
+print("="*50)
+
+for user in user_data:
+    report = (
+        f"Name       : {user['name']}\n"
+        f"Age        : {user['age']}\n"
+        f"BMI        : {user['bmi']}\n"
+        f"Category   : {user['category']}\n"
+        f"Conditions : {', '.join(user['health_tags'])}\n"
+        + "-"*50
+    )
+    print(report)
+
+#Display unique health conditions
+print("\nUnique Health Conditions Across All Users:")
+print(", ".join(sorted(all_health_conditions)))
