@@ -21,3 +21,24 @@ def create_table():
 
 create_table()
 
+def insert_data(name, weight, height):
+    bmi = weight / (height * height)
+
+    with conn:
+        with conn.cursor() as cur:
+            cur.execute("""
+                INSERT INTO bmi_records (name, weight, height, bmi)
+                VALUES (%s, %s, %s, %s)
+            """, (name, weight, height, bmi))
+            print("data inserted successfully")
+
+def fetch_data():
+    with conn:
+        with conn.cursor() as cur:
+            cur.execute("SELECT * FROM bmi_records")
+            rows = cur.fetchall()
+
+            print("\n--- BMI Records ---")
+            for row in rows:
+                print(row)
+
