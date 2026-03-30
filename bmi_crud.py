@@ -1,13 +1,8 @@
 import psycopg2
+from dbconnect import get_connection
 
 #connection establish
-conn = psycopg2.connect(
-    user="postgres",
-    password="bikita",
-    host="localhost",
-    port="5432",
-    database="bmidb"
-)
+conn = get_connection()
 print("Connected to database")
 
 #create table if not exists
